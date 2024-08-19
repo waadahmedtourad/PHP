@@ -24,8 +24,6 @@ class Person {
         echo "Person "."<br>". "name :". $this->getName() ."<br>"."address :".$this->getAddress() ;
     }
 }
-$person = new Person("Yara","Cairo,Eygpt");
-$person->display();
 echo "<br>";
 class Student extends Person{
     private string $program ;
@@ -115,7 +113,7 @@ echo "<br>";
     }
 
 }
-$shape = new Shape("orange",true);
+
 class Rectangle extends Shape{
     private float $length;
     private float $width;
@@ -336,4 +334,9 @@ class Thesquare extends Therectangle {
 }
 $square = new Thesquare("White",true,3.0);
 $square->display();
+
+
+
+
+
 ?>

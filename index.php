@@ -278,4 +278,213 @@
       
 
       
+
+
+
+
+
+
+
+ class employee{
+       
+           private string $empName;
+            
+             public function __constractor( string $name){
+                $this->$empName = $name;
+             }
+             //setter  
+             public function setName($name) :void{     
+                $this->empName = $name;
+             }
+            //getter
+           public function getName() :string{
+            return $this->empName;
+           }
+           public function showEmployee(){
+            echo "Employee Id = " . $this->empId ."<br>" ."Employee Name = " . $this->empName ."<br>" ."Employee salary = " . $this->empSalary ;
+           }
+       }
+       $emp = new employee(1 , "Waad" ,12000000);
+        $emp->showEmployee(); 
+
+
+
+        abstract class shape {
+            protected string $color;
+            
+            public function __construct(string $color) {
+                $this->color = $color;
+            }
+            
+            public function getColor() : string {
+                return $this->color;
+            }
+            
+            public function setColor(string $color) : void {
+                $this->color = $color;
+            }
+            
+            public abstract function getArea(): float;
+            public abstract function getParimeter(): float;
+            public abstract function display(): void;
+        }
+        
+        class rectangle extends shape {
+            private float $length;
+            private float $width;
+            
+            public function __construct(float $length, float $width, string $color) {
+                parent::__construct($color);
+                $this->length = $length;
+                $this->width = $width;
+            }
+            
+            public function setLength(float $length): void {
+                $this->length = $length;
+            }
+            
+            public function setWidth(float $width): void {
+                $this->width = $width;
+            }
+            
+            public function getLength(): float {
+                return $this->length;
+            }
+            
+            public function getWidth(): float {
+                return $this->width;
+            }
+            
+            public function getArea(): float {
+                return $this->length * $this->width;
+            }
+            
+            public function getParimeter(): float {
+                return ($this->length + $this->width) * 2;
+            }
+            
+            public function display(): void {
+                echo "rectangle color is : " . $this->getColor() . "<br>" ."rectangle Area is : " . $this->getArea() ."<br>" ."rectangle perimeter is : " . $this->getParimeter();
+            }
+        }
+        
+        $rect = new rectangle(10.5, 15.5, "red");
+        $rect->display();
+
+
+
+        class Shape {
+            public function draw() {
+                echo "Drawing a shape";
+            }
+        }
+        
+        class Circle extends Shape {
+            public function draw() {
+                echo "Drawing a circle";
+            }
+        }
+        class Calculator {
+            public function calculate($x, $y) {
+                return $x + $y;
+            }
+        
+            public function calculate($x, $y, $z) {
+                return $x + $y + $z;
+            }
+        }
+        
+
+        <?php
+
+       
+        interface Crud {
+            public function create();
+            public function getAll();
+            public function getOne(int $id);
+            public function update(int $id);
+            public function delete(int $id);
+            public function edit(int $id);
+        }
+        
+       
+        interface X {}
+    
+        class Post implements Crud, X {
+            
+            private $posts = [];
+            public function create() {
+         
+                $this->posts[] = ['id' => count($this->posts) + 1, 'content' => 'New post content'];
+                echo "Post created.\n";
+            }
+            
+            public function getAll() {
+                return $this->posts;
+            }
+            
+            public function getOne(int $id) {
+                for ($i = 0; $i < count($this->posts); $i++) {
+                    if ($this->posts[$i]['id'] === $id) {
+                        return $this->posts[$i];
+                    }
+                }
+                
+            }
+            
+            public function update(int $id) {
+                for ($i = 0; $i < count($this->posts); $i++) {
+                    if ($this->posts[$i]['id'] === $id) {
+                        $this->posts[$i]['content'] = 'Updated post content';
+                        echo "Post with ID $id updated.\n";
+                        return;
+                    }
+                }
+                echo "Post with ID $id not found.\n";
+            }
+            
+            public function delete(int $id) {
+                for ($i = 0; $i < count($this->posts); $i++) {
+                    if ($this->posts[$i]['id'] === $id) {
+                        unset($this->posts[$i]);
+                        $this->posts = array_values($this->posts);
+                        echo "Post with ID $id deleted.\n";
+                        return;
+                    }
+                }
+                echo "Post with ID $id not found.\n";
+            }
+            
+            public function edit(int $id) {
+                for ($i = 0; $i < count($this->posts); $i++) {
+                    if ($this->posts[$i]['id'] === $id) {
+                        $this->posts[$i]['content'] = 'Edited post content';
+                        echo "Post with ID $id edited.\n";
+                        return;
+                    }
+                }
+                echo "Post with ID $id not found.\n";
+            }
+        }
+        
+        
+        $post = new Post();
+        $post->create();
+        print_r($post->getAll());
+        $post->update(1);
+        print_r($post->getOne(1));
+        $post->edit(1);
+        print_r($post->getAll());
+        $post->delete(1);
+        print_r($post->getAll());
+        
+        ?>
+        
+            
+            
+         
+        
+        ?>
+        
+
 ?>
